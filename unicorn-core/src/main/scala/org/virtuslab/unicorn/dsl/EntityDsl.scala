@@ -1,8 +1,7 @@
 package org.virtuslab.unicorn.dsl
 
 import org.virtuslab.unicorn.{ HasJdbcDriver, Unicorn }
-
-import scala.slick.lifted.TableQuery
+import slick.lifted.TableQuery
 
 /**
  * TODO
@@ -37,8 +36,9 @@ abstract class EntityDsl[Underlying](val unicorn: Unicorn[Underlying] with HasJd
 
   /**
    * TODO
+   *
    * @param mapping
    */
-  class BaseRepository(implicit mapping: driver.simple.BaseColumnType[Id])
+  class BaseRepository(implicit mapping: driver.BaseColumnType[Id])
     extends BaseIdRepository[Id, Row, Table](query)(mapping)
 }
